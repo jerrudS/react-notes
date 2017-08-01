@@ -8,6 +8,16 @@ function selectNotes() {
     .select('*').from('notes')
 }
 
+function insertNote(note) {
+  return knex
+    .insert({
+      note: note
+    })
+    .into('notes')
+    .returning('*')
+}
+
 module.exports = {
-  selectNotes: selectNotes
+  selectNotes: selectNotes,
+  insertNote: insertNote
 }

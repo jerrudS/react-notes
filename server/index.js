@@ -3,7 +3,7 @@ const express = require('express')
 const path = require('path')
 const bodyParser = require('body-parser')
 const app = express()
-const { selectNotes } = require('./database')
+const { selectNotes, insertNote } = require('./database')
 
 app.use(bodyParser.json())
 app.use(express.static(path.join(__dirname, 'public')))
@@ -14,7 +14,6 @@ function filterNotes(note) {
       note: item.note
     }
   })
-  console.log(noteOnly)
   return noteOnly
 }
 
@@ -22,6 +21,15 @@ app.get('/notes', (req, res) => {
   selectNotes()
     .then(data => {
       (res.send(filterNotes(data)))
+    })
+})
+
+app.post('/notes', (req, res) => {
+  const note = req.body
+
+  insertNote(note)
+    .then(data => {
+      res.status(201).json(data)
     })
 })
 
