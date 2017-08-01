@@ -6,6 +6,7 @@ const app = express()
 const { selectNotes } = require('./database')
 
 app.use(bodyParser.json())
+app.use(express.static(path.join(__dirname, 'public')))
 
 function filterNotes(note) {
   const noteOnly = note.map(item => {
