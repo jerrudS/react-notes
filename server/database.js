@@ -10,9 +10,7 @@ function selectNotes() {
 
 function insertNote(note) {
   return knex
-    .insert({
-      note: note
-    })
+    .insert(note)
     .into('notes')
     .returning('*')
 }

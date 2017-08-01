@@ -4,11 +4,11 @@ import Notes from './components/notes.js'
 import Note from './components/note.js'
 
 ReactDOM.render(
-  <Notes />,
-  document.querySelector('#list')
+  <Note />,
+  document.querySelector('#input')
 )
 
 ReactDOM.render(
-  <Note />,
-  document.querySelector('#input')
+  <Notes />,
+  document.querySelector('#list')
 )

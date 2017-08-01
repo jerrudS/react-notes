@@ -7,13 +7,10 @@ export default class Note extends React.Component {
   }
 
   handleSubmit(event) {
-    event.preventDefault()
-    console.log(event.target)
     const formData = new FormData(event.target)
     const userData = {
       note: formData.get('note')
     }
-    console.log(userData)
     fetch('/notes', {
       method: 'POST',
       headers: {
