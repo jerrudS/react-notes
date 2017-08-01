@@ -8,7 +8,6 @@ export default class Notes extends React.Component {
 
   async componentDidMount() {
     try {
-      console.log('hi')
       const res = await fetch('/notes')
       const json = await res.json()
       return this.setState({ note: json })
@@ -20,13 +19,18 @@ export default class Notes extends React.Component {
 
   render() {
     return (
-      <div>
-        <input
-          autoFocus
-          type="text"/>
-        <button>
-          Add Note
-        </button>
+      <div className="container col-md-4 col-md-offset-4">
+        <h1>My Notes</h1>
+        <div className="form-inline">
+          <input
+            className="form-control"
+            autoFocus
+            placeholder="Enter Note Here"
+            type="text"/>
+          <button className="btn btn-default" type="submit">
+            Add Note
+          </button>
+        </div>
         <ul>
           {
             this.state.note.map((each, i) => {
