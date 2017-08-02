@@ -8,19 +8,11 @@ const { selectNotes, insertNote, deleteNote } = require('./database')
 app.use(bodyParser.json())
 app.use(express.static(path.join(__dirname, 'public')))
 
-function filterNotes(note) {
-  const noteOnly = note.map(item => {
-    return {
-      note: item.note
-    }
-  })
-  return noteOnly
-}
-
 app.get('/notes', (req, res) => {
   selectNotes()
     .then(data => {
-      (res.send(filterNotes(data)))
+      (res.send(data))
+      console.log(data)
     })
 })
 

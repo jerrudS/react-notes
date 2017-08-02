@@ -22,11 +22,19 @@ export default class App extends React.Component {
     })
     this.setState({ notes: [notes].concat(this.state.notes)})
   }
+
+  async deleteNote(note) {
+    await fetch('/notes/' + note, {
+      method: 'DELETE',
+    })
+    // this.setState({ notes: })
+  }
+
   render() {
     return (
       <div className="container">
         <Note saveNote={ this.saveNote }/>
-        <Notes notes={ this.state.notes }/>
+        <Notes notes={ this.state.notes } deleteNote={ this.deleteNote }/>
       </div>
     )
   }
