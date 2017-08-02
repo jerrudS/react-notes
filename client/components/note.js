@@ -11,16 +11,7 @@ export default class Note extends React.Component {
     const userData = {
       note: formData.get('note')
     }
-    fetch('/notes', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(userData)
-    })
-    .catch(err => {
-      console.log('ERROR', err)
-    })
+    this.props.saveNote(userData)
   }
 
   render() {
