@@ -7,6 +7,7 @@ export default class Note extends React.Component {
   }
 
   handleSubmit(event) {
+    event.preventDefault()
     const formData = new FormData(event.target)
     const userData = {
       note: formData.get('note')

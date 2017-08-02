@@ -12,7 +12,6 @@ app.get('/notes', (req, res) => {
   selectNotes()
     .then(data => {
       (res.send(data))
-      console.log(data)
     })
 })
 
@@ -27,7 +26,6 @@ app.post('/notes', (req, res) => {
 
 app.delete('/notes/:id', (req, res) => {
   const itemId = parseInt(req.params.id, 10)
-  console.log(itemId)
 
   deleteNote(itemId)
     .then(() => {

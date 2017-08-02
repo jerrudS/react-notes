@@ -8,6 +8,7 @@ export default class App extends React.Component {
     super(props)
     this.state = { notes: [] }
     this.saveNote = this.saveNote.bind(this)
+    this.deleteNote = this.deleteNote.bind(this)
   }
   async componentDidMount() {
     const res = await fetch('/notes')
@@ -15,19 +16,20 @@ export default class App extends React.Component {
     this.setState({ notes: json })
   }
   async saveNote(notes) {
-    await fetch('/notes', {
+    const res = await fetch('/notes', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(notes)
     })
-    this.setState({ notes: [notes].concat(this.state.notes)})
+    const data = await res.json()
+    this.setState({ notes: [data[0]].concat(this.state.notes)})
   }
 
-  async deleteNote(note) {
-    await fetch('/notes/' + note, {
+  async deleteNote(id) {
+    await fetch('/notes/' + id, {
       method: 'DELETE',
     })
-    // this.setState({ notes: })
+    this.setState({ notes: this.state.notes.filter(note => note.id !== parseInt(id)) })
   }
 
   render() {
