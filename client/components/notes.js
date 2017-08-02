@@ -19,18 +19,7 @@ export default class Notes extends React.Component {
 
   render() {
     return (
-      <div className="container col-md-4 col-md-offset-4">
-        <h1>My Notes</h1>
-        <div className="form-inline">
-          <input
-            className="form-control"
-            autoFocus
-            placeholder="Enter Note Here"
-            type="text"/>
-          <button className="btn btn-default" type="submit">
-            Add Note
-          </button>
-        </div>
+      <div>
         <ul>
           {
             this.state.note.map((each, i) => {

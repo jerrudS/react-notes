@@ -12,7 +12,16 @@ body {
   background-size: cover;
 }
 
+h1 {
+  text-align: center;
+}
+
 ul {
   padding-top: 15px;
   font-size: 18px;
+}
+
+#input {
+  padding-top: 15px;
+  text-align: center;
 }
