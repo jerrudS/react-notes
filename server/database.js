@@ -15,7 +15,15 @@ function insertNote(note) {
     .returning('*')
 }
 
+function deleteNote(id) {
+  return knex
+    .from('notes')
+    .where('id', id)
+    .del()
+}
+
 module.exports = {
   selectNotes: selectNotes,
-  insertNote: insertNote
+  insertNote: insertNote,
+  deleteNote: deleteNote
 }
