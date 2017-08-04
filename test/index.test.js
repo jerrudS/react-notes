@@ -4,8 +4,9 @@ const request = require('request')
 
 
 describe('GET My Notes', () => {
+  const url = 'http://localhost:' + process.env.PORT + '/notes'
   it('Returns an array of notes', (done) => {
-    request('http://localhost:1111/notes', (error, response, body) => {
+    request(url, (error, response, body) => {
       expect(error).to.equal(null)
       expect(response.statusCode).to.equal(200)
       const data = JSON.parse(body)
@@ -17,7 +18,7 @@ describe('GET My Notes', () => {
 
 describe('POST My Notes', () => {
   it('Saves a new note', (done) => {
-    request.post('http://localhost:1111/notes', (error, response, body) => {
+    request.post(url, (error, response, body) => {
       expect(error).to.equal(null)
       expect(response.statusCode).to.equal(201)
       const data = JSON.parse(body)
@@ -29,7 +30,7 @@ describe('POST My Notes', () => {
 
 // describe('DELETE My Note', () => {
 //   it('Deletes a note by id', (done) => {
-//     request.post('http://localhost:1111/notes', (error, response, body) => {
+//     request.post(url, (error, response, body) => {
 //       console.log(body)
 //       if (err) return done(err)
 //       console.log(body)

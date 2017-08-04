@@ -1,3 +1,4 @@
+require('dotenv').config()
 const request = require('request')
 const express = require('express')
 const path = require('path')
@@ -34,5 +35,5 @@ app.delete('/notes/:id', (req, res) => {
 })
 
 app.listen(process.env.PORT, () => {
-  console.log('Listening on port 1111')
+  console.log('Listening on port', process.env.PORT)
 })

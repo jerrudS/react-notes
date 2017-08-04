@@ -1,6 +1,11 @@
+const db = require('db')
+db.connect({
+  url: process.env.DATABASE_URL
+})
+
 const knex = require('knex')({
   dialect: 'pg',
-  connection: 'postgres://localhost:5432/notes'
+  connection: 'process.env.DATABASE_URL'
 })
 
 function selectNotes() {
