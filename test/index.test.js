@@ -1,10 +1,12 @@
+require('dotenv').config()
 const { it, describe } = require('mocha')
 const { expect } = require('chai')
 const request = require('request')
 
 
+const url = 'http://localhost:' + process.env.PORT + '/notes'
 describe('GET My Notes', () => {
-  const url = 'http://localhost:' + process.env.PORT + '/notes'
+  console.log(process.env.PORT)
   it('Returns an array of notes', (done) => {
     request(url, (error, response, body) => {
       expect(error).to.equal(null)

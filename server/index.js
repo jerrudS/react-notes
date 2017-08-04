@@ -6,6 +6,7 @@ const bodyParser = require('body-parser')
 const app = express()
 const { selectNotes, insertNote, deleteNote } = require('./database')
 
+
 app.use(bodyParser.json())
 app.use(express.static(path.join(__dirname, 'public')))
 
