@@ -8,6 +8,9 @@
     "watch:client": "watchify -vd -t babelify client/index.js -o server/public/bundle.js",
     "watch:server": "nodemon server/index.js --ignore server/public/**",
     "watch": "run-p watch:client watch:server",
+    "db:make": "pg-bump create create-notes",
+    "db:up": "pg-bump up",
+    "db:down": "pg-bump down",
     "test": "mocha test/"
   },
   "keywords": [],
@@ -31,6 +34,7 @@
     "mocha": "^3.5.0",
     "nodemon": "^1.11.0",
     "npm-run-all": "^4.0.2",
+    "pg-bump": "^1.0.3",
     "request": "^2.81.0",
     "stylelint": "^7.10.1",
     "stylelint-config-standard": "^16.0.0",
@@ -38,6 +42,7 @@
   },
   "dependencies": {
     "body-parser": "^1.17.2",
+    "dotenv": "^4.0.0",
     "express": "^4.15.3",
     "knex": "^0.13.0",
     "pg": "^7.0.2",
