@@ -1,7 +1,10 @@
 {
   "name": "react-notes",
   "version": "1.0.0",
-  "description": "",
+  "engines": {
+    "node": "8.1.0"
+  },
+  "description": "A web app for JS developers who want to save notes about what they've learned.",
   "main": "index.js",
   "scripts": {
     "bundle": "browserify -t babelify client/index.js -o server/public/bundle.js",
